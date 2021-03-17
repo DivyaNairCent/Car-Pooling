@@ -1,0 +1,2 @@
+# CarPooling
+ Keeping in mind the daily expenses, transportation cost is very high. We compared the current ride-sharing apps like Uber &amp; Lyft, but the cost is comparatively the same as the taxi/cab. We got an idea of making real-time ridesharing (instant ridesharing) that arranges one-time shared rides on very short notice if a person who wants a ride is near to the person who is looking wants to give a ride and have the same destination.
