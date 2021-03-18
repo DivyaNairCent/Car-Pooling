@@ -4,8 +4,9 @@ Author: Surya Teja Kandru
 COMP229 -->
 
 <!-- Main Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">CarPooling</a>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #FFFFFF;">
+    <a class="navbar-brand" href="/" style="color: #fbb684">
+    <img src="/Assets/images/img_carpooling_logo.png" width="40" height="40" alt=""> Car <span style="color: #00c9a4;">Pooling</span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,32 +15,34 @@ COMP229 -->
       <ul class="navbar-nav ml-auto">
 
         <% if (title == "Home"){ %>
-        <li class="nav-item active">
+        <li class="nav-item active"> <a class="nav-link" href="/home" style="color: #00c9a4"><i class="fas fa-lg fa-laptop-house"></i> Home </a> </li>
         <% } else  { %>
-        <li class="nav-item">
+        <li class="nav-item"> <a class="nav-link" href="/home" style="color: #d2d2d2"><i class="fas fa-lg fa-laptop-house"></i> Home </a> </li>
         <% } %>
-          <a class="nav-link" href="/home"><i class="fas fa-lg fa-laptop-house"></i> Home </a>
-        </li>
 
         <% if (title == "About") { %>
-        <li class="nav-item active">
+        <li class="nav-item active"> <a class="nav-link" href="/about" style="color: #00c9a4"><i class="fas fa-info-circle"></i> About </a> </li>
         <% } else  { %>
-        <li class="nav-item">
+        <li class="nav-item"> <a class="nav-link" href="/about" style="color: #d2d2d2"><i class="fas fa-info-circle"></i> About </a> </li>
         <% } %>
-          <a class="nav-link" href=""><i class="fas fa-info-circle"></i> About </a>
-        </li>
 
-      
-
-       
-
+        <% if (title == "Add Ride") { %>
+        <li class="nav-item active"> <a class="nav-link" href="/addride" style="color: #00c9a4"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
+        <% } else  { %>
+        <li class="nav-item"> <a class="nav-link" href="/addride" style="color: #d2d2d2"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
+        <% } %>
+          
+        <% if (title == "List Ride") { %>
+        <li class="nav-item active"> <a class="nav-link" href="/listride" style="color: #00c9a4"><i class="fa fa-car"></i> List Ride </a> </li>
+        <% } else  { %>
+        <li class="nav-item"> <a class="nav-link" href="/listride" style="color: #d2d2d2"><i class="fa fa-car"></i> List Ride </a> </li>
+        <% } %>
 
         <% if (title == "Contact") { %>
-        <li class="nav-item active">
+        <li class="nav-item active"> <a class="nav-link" href="/contact" style="color: #00c9a4"><i class="fas fa-address-card"></i> Contact </a> </li>
         <% } else  { %>
-        <li class="nav-item">
+        <li class="nav-item"> <a class="nav-link" href="/contact" style="color: #d2d2d2"><i class="fas fa-address-card"></i> Contact </a> </li>
         <% } %>
-          <a class="nav-link" href=""><i class="fas fa-mobile-alt"></i> Contact </a>
-        </li>
+          
     </div>
   </nav>

@@ -1,0 +1,32 @@
+<!-- 
+main_content.ejs
+CarPooling
+Created by Silviya Velani on 03/18/21.
+Student Id: 301167163
+Copyright © 2021 Centennial College. All rights reserved. -->
+
+
+<!-- Main Content -->
+<main class="container-fluid" style="padding-top:100px; padding-bottom:85px">
+    <% if (title == "Home") { %>
+        <div>
+            <%- include ../content_pages/home_page.ejs %>
+        </div>
+    <% } else if (title == "About") { %>
+        <div>
+            <%- include ../content_pages/about_page.ejs %>
+        </div>
+    <%  } else if (title == "Add Ride") {  %>
+        <div>
+            <%- include ../content_pages/add_ride_page.ejs %>
+        </div>
+    <%  } else if (title == "List Ride") {  %>
+        <div>
+            <%- include ../content_pages/list_ride_page.ejs %>
+        </div>
+    <%  } else {  %>
+        <div>
+            <%- include ../content_pages/contact_page.ejs %>
+        </div>
+    <% } %>
+</main>
