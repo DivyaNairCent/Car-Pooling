@@ -38,3 +38,73 @@ module.exports.processAddPage = (req, res, next) => {
     });
 
 }
+
+module.exports.displayRideList = (req, res, next) => {
+    Ride.find((err, rideList) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            res.render('ride/list', {title: 'Rides', RideList: rideList});      
+        }
+    });
+}
+
+/* GET router for the DELETE Ride page - DELETE */
+module.exports.performRideDeletion =  (req, res, next) => {
+    let id = req.params.id;
+    Ride.deleteOne({_id: id}, (err) =>{
+        if(err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // refresh ride list
+            res.redirect('/ride-list');
+        }
+    });
+};
+
+
+/* GET router for the EDIT Ride page - UPDATE */
+module.exports.displayEditRide =  (req, res, next) => {
+    let id = req.params.id;
+    Ride.findById(id, (err, rideToEdit) =>{
+        if(err) {
+            console.log(err);
+            res.end(err);
+        } else {
+            // show the edit view
+            res.render('ride/edit', {title: 'Edit Ride', ride: rideToEdit, 
+            displayName: req.user ? req.user.displayName : ''})
+        }
+    });
+};
+
+/* POST router for the EDIT Ride page - UPDATE */
+module.exports.processRideUpdate = (req, res, next) => {
+    let id = req.params.id;
+    let updatedRide = Ride ({
+        _id: id,
+        "ownerUserId": req.body.ownerUserId,
+        "carModel": req.body.carModel,
+        "journeyDate": req.body.journeyDate,
+        "journeyTiming": req.body.journeyTiming,
+        "fromDestination": req.body.fromDestination,
+        "toDestination": req.body.toDestination,
+        "numberOfSeats": req.body.numberOfSeats,
+        "pricePerSeat": req.body.pricePerSeat,
+        "acceptingBookingTillDate": req.body.acceptingBookingTillDate,
+    });
+
+    Ride.updateOne({_id: id}, updatedRide, (err) => {
+        if(err){
+            console.log(err);
+            res.end(err); 
+        } else {
+            // refresh ride list
+            res.redirect('/ride-list');
+        }
+    });
+};
