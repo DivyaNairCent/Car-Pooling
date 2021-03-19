@@ -33,21 +33,25 @@ module.exports.processAddPage = (req, res, next) => {
         else
         {
             // refresh the ride list
-            res.redirect('/ride-list');
+            res.redirect('/listride');
         }
     });
 
 }
 
 module.exports.displayRideList = (req, res, next) => {
-    Ride.find((err, rideList) => {
+    console.log("Entered")
+    Ride.find().exec((err, rideList) => {
         if(err)
         {
             return console.error(err);
         }
         else
         {
-            res.render('ride/list', {title: 'Rides', RideList: rideList});      
+            console.log("Something");
+            // console.log(RideList);
+            res.render('index', {title: 'List Ride', RideList: rideList});
+            // res.render('/index', {title: 'Home'});      
         }
     });
 }
@@ -61,7 +65,7 @@ module.exports.performRideDeletion =  (req, res, next) => {
             res.end(err);
         } else {
             // refresh ride list
-            res.redirect('/ride-list');
+            res.redirect('/listride');
         }
     });
 };
@@ -76,7 +80,7 @@ module.exports.displayEditRide =  (req, res, next) => {
             res.end(err);
         } else {
             // show the edit view
-            res.render('ride/edit', {title: 'Edit Ride', ride: rideToEdit, 
+            res.render('index', {title: 'Edit Ride', ride: rideToEdit, 
             displayName: req.user ? req.user.displayName : ''})
         }
     });
@@ -104,7 +108,7 @@ module.exports.processRideUpdate = (req, res, next) => {
             res.end(err); 
         } else {
             // refresh ride list
-            res.redirect('/ride-list');
+            res.redirect('/rides');
         }
     });
 };

@@ -5,6 +5,63 @@ Created by Silviya Velani on 03/18/21.
 Student Id: 301167163
 Copyright © 2021 Centennial College. All rights reserved. -->
 
-<div class="container">
-    <h1>List ride Page</h1>
-</div>
+
+<!--Main Content-->
+<main class="container">
+    <div class="jumbotron">     
+        <div class="row">
+            <div class="offset-mid-1 col-md-12">
+                <h2 class="display-6" style="text-align: center;"><%= title %></h2>
+                
+                <br>
+                <table class="table table-bordered  table-striped table-hover" style="width: 100%">
+                    <!-- Header Row-->
+                    <tr >
+                        <th class="text-center  col-2 col-st">Source</th>
+                        <th class="text-center  col-2 col-st">Destination</th>
+                        <th class="text-center  col-5 col-st">Trip  Date</th>
+                        <th class="text-center  col-3 col-st1">Time</th>
+                        <th class="text-center  col-3 col-st">Fare</th>
+                        <th class="text-center  col-3  col-st">Car Model</th>
+                        <th class="text-center  col-3  col-st">Seats available</th>
+                        <th class="text-center  col-3  col-st1">Booking ends</th>
+
+                        <th class="text-center  col-2" ></th>
+                        <th class="text-center  col-2"></th>
+                        
+                    </tr>
+                    
+                    <!-- Repeatable Template Row-->
+                    
+                    <% for(let count=0; count< RideList.length; count++){ %> 
+                        <tr >
+                            <td class="text-center  col-1 col-st"><%= RideList[count].fromDestination %></td>
+                            <td class="text-center  col-2  col-st"><%= RideList[count].toDestination %></td>
+                            <td class="text-center  col-5  col-st1"><%= RideList[count].journeyDate %></td>
+                            <td class="text-center  col-3  col-st"><%= RideList[count].journeyTiming %></td>
+                            <td class="text-center  col-3  col-st"><%= RideList[count].pricePerSeat %></td>
+                            <td class="text-center  col-3  col-st"><%= RideList[count].carModel %></td>
+                            <td class="text-center  col-3  col-st"><%= RideList[count].numberOfSeats %></td>
+                            <td class="text-center  col-3  col-st1"><%= RideList[count].acceptingBookingTillDate %></td>
+
+                            
+                            <td class="text-center  col-2" >
+                                <a href="/rides/edit/<%= RideList[count].id %>" class="btn btn-primary btn-sm">
+                                <i class="fas fa-pencil-alt"></i>  </a>
+                            </td>
+                            <td class="text-center  col-2" >
+                                <a href="/rides/delete/<%= RideList[count].id %> " class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i></a>
+                            </td>  
+                                
+                        </tr>
+                    <% } %>
+                </table>
+            </div>
+        </div>
+    </div>
+  </main>
+
+<%- include ../partials/bottom_nav.ejs%>
+
+<%- include ../partials/footer.ejs%>

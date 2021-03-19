@@ -5,3 +5,151 @@
     font-size: 34px !important;
     font-weight: bold
 }
+
+.col-st
+{
+    border: 2px solid black; 
+    width: 10%;
+}
+
+.col-st1
+{
+    border: 2px solid black; 
+    width: 15%;
+}
+
+.site-wrap {
+    padding-top: 90px;
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.section .section-content {
+    font-family: wfont_658d28_7003edce4a924eb3a8e2703bdcff8657,wf_7003edce4a924eb3a8e2703bd,orig_montserratultralight;
+    font-size: 20px;
+    text-align: center;
+    text-emphasis-color: #fff;;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    opacity:1
+}
+
+.section {
+    width: 100%;
+    
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    color: #fff;
+    position: relative;
+}
+.inner-section2.carpool {
+    background-size: cover;
+}
+.inner-section2 {
+    height: 410px;
+}
+.inner-section2.jobs:before, .inner-section2.carpool:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #242323;
+    opacity: 0.4;
+}
+
+.bckimg{
+    background: url('about.jpeg');
+}
+.section-content {
+    width: 950px;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -moz-box-align: start;
+    background-repeat: repeat; 
+    font-weight: 800; 
+    -ms-flex-align: start;
+    font-weight: bold; 
+    align-items: flex-start;
+    opacity:1;
+    background: transparent
+    
+}
+
+.jumbotron
+{
+    margin: 50px 50px 75px 100px;
+}
+
+.display-4
+{
+    text-align: center;
+    
+}
+
+
+/* styling for section class*/
+.hero {
+    position: relative;
+    padding: 0em 0 0 5em;
+    overflow: hidden;
+}
+
+/* styling for heading*/
+.d-flex {
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+.d-flex {
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+
+
+.m_btn{
+    margin-left:150px;
+}
+
+
+/* styling for contact details section*/
+.contact_det
+{
+    float: left; 
+    border: 2px solid black;
+    width:30%; 
+    background-color:black; 
+    position: right;
+    margin-left:50px;
+    padding: 125px 10px 25px 10px; 
+
+}
+/* styling for contact message section*/
+.contact_mess
+{
+    padding: 100px 100px 20px 100px; 
+    width:70%;
+    border: 2px solid black; 
+    background-color:white ;
+}
+
+label{
+    display:inline-block;
+    width:100px;
+    margin-right:10px;
+    text-align:right;
+}
