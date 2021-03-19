@@ -81,7 +81,8 @@ module.exports.displayEditRide =  (req, res, next) => {
         } else {
             // show the edit view
             res.render('index', {title: 'Edit Ride', ride: rideToEdit, 
-            displayName: req.user ? req.user.displayName : ''})
+        })
+            // displayName: req.user ? req.user.displayName : ''})
         }
     });
 };
