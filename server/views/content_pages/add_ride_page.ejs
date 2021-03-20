@@ -8,3 +8,69 @@ Copyright © 2021 Centennial College. All rights reserved. -->
 <div class="container">
     <h1>Add Ride Page</h1>
 </div>
+
+<hr class="my-3"><br>
+
+<div class="col" style="text-align:center;padding-left:80px;padding-right:80px">
+    <form id="add-ride-form" action="/addRide" method="POST">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="source" placeholder="Source">
+                </div>
+                
+                <div class="col">
+                    <input type="text" class="form-control" name="destination" placeholder="Destination">
+                </div>
+            </div><br>
+        
+            <div class="form-group">
+                <input type="text" class="form-control" name="car" placeholder="Enter car name">
+            </div>
+
+            <div class="row">
+                <div class="col" style="text-align:left;">
+                    <label for="bookingEndDate" style="text-align:left;width:180px">Booking End Date:</label>
+                    <input type="date" id="bookingEndDate" class="form-control" name="Booking" placeholder="Enter date">
+                </div>
+                
+                <div class="col" style="text-align:left;">
+                <label for="bookingEndTime" style="text-align:left;width:180px">Booking End Time:</label>
+                    <input type="time" id="bookingEndTime" class="form-control" name="Booking" placeholder="Enter time">
+                </div>
+            </div><br>
+        
+            <div class="form-group" style="text-align:left;">
+                <label for="seats" style="text-align:left;width:180px">Seats Available:</label>
+                <select class="form-control" id="seats" name="seats">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col" style="text-align:left;">
+                    <label for="tripDate" style="text-align:left;width:180px">Trip Date:</label>
+                    <input type="date" id="tripDate" class="form-control" name="tripDate" placeholder="Enter date">
+                </div>
+                
+                <div class="col" style="text-align:left;">
+                <label for="tripTime" style="text-align:left;width:180px">Trip Time:</label>
+                    <input type="time" id="tripTime" class="form-control" name="tripTime" placeholder="Enter time">
+                </div>
+            </div><br>
+          
+            <div class="form-group">
+                <input type="text" class="form-control" name="fare" placeholder="Enter fare">
+            </div>
+
+            <a type="submit" class="btn btn-success" href="/">Add Ride</a>
+          <!-- <input type="submit" class="btn btn-success" value="Lets Build!"/> -->
+        </div>  
+    </form>
+</div>
