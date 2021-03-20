@@ -1,8 +1,10 @@
 
 <link rel='stylesheet' href='/Content/app.css' />
 
-<!-- Content for edit page-->
 
+
+<!-- Content for edit page-->
+<!-- 
   <main class="container">
         <div class="jumbotron"> 
 
@@ -117,4 +119,107 @@
 
         </div>
    </div>
-</main>
+</main> -->
+
+<!-- <script>
+
+    
+
+    function GetFormattedDate() {
+        
+    var todayTime = new Date();
+    var month = format(todayTime .getMonth() + 1);
+    var day = format(todayTime .getDate());
+    var year = format(todayTime .getFullYear());
+    document.getElementById("bookingEndDate").value = "2014-02-09";
+    // return month + "/" + day + "/" + year;
+    }
+</script> -->
+
+
+<div class="container">
+    <h1>Edit Ride Page</h1>
+</div>
+
+<hr class="my-3"><br>
+
+<div class="col" style="text-align:center;padding-left:80px;padding-right:80px">
+    <!-- <form id="add-ride-form" action="/rides/add" method="POST"> -->
+        <form class="form" method = "POST">
+        <div class="container">
+            <div class="form-group">
+                <input type="text" class="form-control" name="ownerUserId" placeholder="Enter owner userid" value= "<%= ride.ownerUserId %>">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="fromDestination" placeholder="Source" value= "<%= ride.fromDestination %>">
+                </div>
+                
+                <div class="col">
+                    <input type="text" class="form-control" name="toDestination" placeholder="Destination" value= "<%= ride.toDestination %>">
+                </div>
+            </div><br>
+        
+            <div class="form-group">
+                <input type="text" class="form-control" name="carModel" placeholder="Enter car name" value= "<%= ride.carModel %>">
+            </div>
+
+            <div class="row">
+                <div class="col" style="text-align:left;">
+                    <label for="bookingEndDate" style="text-align:left;width:180px">Booking End Date:</label>
+                    <input type="date" id="bookingEndDate" class="form-control" name="acceptingBookingTillDate" placeholder="Enter date">
+                </div>
+                
+                <div class="col" style="text-align:left;">
+                <label for="bookingEndTime" style="text-align:left;width:180px">Booking End Time:</label>
+                    <input type="time" id="bookingEndTime" class="form-control" name="acceptingBookingTillTime" placeholder="Enter time">
+                </div>
+            </div><br>
+        
+            <div class="form-group" style="text-align:left;">
+                <label for="seats" style="text-align:left;width:180px">Seats Available:</label>
+                <select class="form-control" id="seats" name="numberOfSeats" value= "<%= ride.numberOfSeats %>">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col" style="text-align:left;">
+                    <label for="tripDate" style="text-align:left;width:180px">Trip Date:</label>
+                    <input type="date" id="tripDate" class="form-control" name="journeyDate" placeholder="Enter date" value= "<%= ride.journeyDate %>">
+                </div>
+                
+                <div class="col" style="text-align:left;">
+                <label for="tripTime" style="text-align:left;width:180px">Trip Time:</label>
+                    <input type="time" id="tripTime" class="form-control" name="journeyTiming" placeholder="Enter time" value= "<%= ride.journeyTiming %>">
+                </div>
+            </div><br>
+          
+            <div class="form-group">
+                <input type="text" class="form-control" name="pricePerSeat" placeholder="Enter fare" value= "<%= ride.pricePerSeat %>">
+            </div>
+
+            <button class="btn btn-primary btn-sm" type="submit">
+                <i class="fas fa-edit"> </i>Submit</button>
+
+                
+                <a href="/rides" class="btn-warning btn-sm">
+                    <i class="fas fa-undo">Cancel</i></a>
+
+            <!-- <button class="btn btn-primary btn-sm" type="submit">
+                <i class="fas fa-edit"> </i>Add Ride</button> -->
+
+            <!-- <a type="submit" class="btn btn-success" href="/">Add Ride</a> -->
+
+            <a href="/rides" class="btn-warning btn-sm">
+                <i class="fas fa-undo">Cancel</i></a> -->
+          <!-- <input type="submit" class="btn btn-success" value="Lets Build!"/> -->
+        </div>  
+    </form>
+</div>

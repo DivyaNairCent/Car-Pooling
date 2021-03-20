@@ -15,4 +15,29 @@ COMP229 -->
   <link rel='stylesheet' href='/Content/app.css' />
 
 </head>
-<body>
+<script>
+
+    
+
+    function GetFormattedDate() {
+        
+    // var todayTime = new Date();
+    // var month = format(todayTime.getMonth() + 1);
+    // var day = format(todayTime.getDate());
+    // var year = format(todayTime.getFullYear());
+    
+    var todayTime = new Date();
+  var month = todayTime.getMonth() + 1;
+  var day = todayTime.getDate();
+  var year = todayTime.getFullYear();
+
+    setTimeout(function(){ 
+      // alert("5 secoinds");
+      document.getElementById("bookingEndDate").value = month + "/" + day + "/" + year;
+    }, 5000);
+
+    // document.getElementById("bookingEndDate").value = "2014-02-09";
+    // return month + "/" + day + "/" + year;
+    }
+</script>
+<body onload="GetFormattedDate()">
