@@ -1,0 +1,120 @@
+
+<link rel='stylesheet' href='/Content/app.css' />
+
+<!-- Content for edit page-->
+
+  <main class="container">
+        <div class="jumbotron"> 
+
+    <div class="row">
+        <div class = "offset-md-3 col-md-6">
+            <h2 class="display-6" style="text-align: center;"><%= title %></h2>
+            <p><br></p>
+            <form class="form" method = "POST">
+
+            <div class="form-group">
+                    <b><I>User Id</b></I>
+                    <input type="text" class="form-control"
+                    id="ownerUserIdTextField"
+                    placeholder="Enter the ID"
+                    name="ownerUserId" 
+                    value= "<%= ride.ownerUserId %>"
+                    required>
+                </div>
+ 
+                <div class="form-group">
+                    <b><I>User Id</b></I>
+                    <input type="text" class="form-control"
+                    id="ownerUserIdTextField"
+                    placeholder="Enter the ID"
+                    name="ownerUserId" 
+                    value= "<%= ride.ownerUserId %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <b><I>Source</b></I>
+                    <input type="text" class="form-control"
+                    id="fromDestinationTextField"
+                    placeholder="Enter the Source"
+                    name="fromDestination" 
+                    value= "<%= ride.fromDestination %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <b><I>Destination</b></I>
+                    <input type="text" class="form-control"
+                    id="toDestinationTextField"
+                    placeholder="Enter the  Destination"
+                    name="toDestination" 
+                    value= "<%= ride.toDestination %>"
+                    required>
+                </div>
+
+                <div class="form-group">
+                    <b><I>Trip Date</b></I>
+                    <input type="text" class="form-control"
+                    id="journeyDateTextField"
+                    placeholder="Enter the trip date"
+                    name="journeyDate"
+                    value= "<%= ride.journeyDate %>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <b><I>Trip Time</b></I>
+                    <input type="text" class="form-control"
+                    id="journeyTimingTextField"
+                    placeholder="Trip Time"
+                    name="journeyTiming"
+                    value= "<%= ride.journeyTiming %>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <b><I>Fare</b></I>
+                    <input type="text" class="form-control"
+                    id="pricePerSeatTextField"
+                    placeholder="Enter the fare per seat"
+                    name="pricePerSeat"
+                    value= "<%= ride.pricePerSeat %>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <b><I>Car Model</b></I>
+                    <input type="text" class="form-control"
+                    id="carModelTextField"
+                    placeholder="Enter car model"
+                    name="carModel"
+                    value= "<%= ride.carModel %>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <b><I>Seats Available</b></I>
+                    <input type="text" class="form-control"
+                    id="numberOfSeatsTextField"
+                    placeholder="Enter seat availability"
+                    name="numberOfSeats"
+                    value= "<%= ride.numberOfSeats %>"
+                    required>
+                </div>
+                <div class="form-group">
+                    <b><I>Booking Ends</b></I>
+                    <input type="text" class="form-control"
+                    id="acceptingBookingTillDateTextField"
+                    placeholder="Enter booking end time"
+                    name="acceptingBookingTillDate"
+                    value= "<%= ride.acceptingBookingTillDate %>"
+                    required>
+                </div>
+
+                <button class="btn btn-primary btn-sm" type="submit">
+                    <i class="fas fa-edit"> </i>Submit</button>
+
+                    
+                    <a href="/rides" class="btn-warning btn-sm">
+                        <i class="fas fa-undo">Cancel</i></a>
+            </form>
+
+        </div>
+   </div>
+</main>
