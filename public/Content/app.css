@@ -74,7 +74,7 @@
 }
 
 .bckimg{
-    background: url('about.jpeg');
+    background: url('rideshare.jpg');
 }
 .section-content {
     width: 950px;
@@ -152,4 +152,9 @@ label{
     width:100px;
     margin-right:10px;
     text-align:right;
+}
+
+.inner-section2.jobs .section-content, .inner-section2.partners .section-content, .inner-section2.contact .section-content, .inner-section2.support-cities .section-content, .inner-section2.team .section-content, .inner-section2.carpool .section-content {
+    position: relative;
+    z-index: 1;
 }

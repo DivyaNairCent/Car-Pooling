@@ -10,14 +10,25 @@
         <div class = "offset-md-3 col-md-6">
             <h2 class="display-6" style="text-align: center;"><%= title %></h2>
             <p><br></p>
-            <form class="form" method = "POST"> 
+            <form class="form" method = "POST">
+
+            <div class="form-group">
+                    <b><I>User Id</b></I>
+                    <input type="text" class="form-control"
+                    id="ownerUserIdTextField"
+                    placeholder="Enter the ID"
+                    name="ownerUserId" 
+                    value= "<%= ride.ownerUserId %>"
+                    required>
+                </div>
+ 
                 <div class="form-group">
                     <b><I>User Id</b></I>
                     <input type="text" class="form-control"
                     id="ownerUserIdTextField"
                     placeholder="Enter the ID"
                     name="ownerUserId" 
-                    value= "<%= ride.ownerUserId>"
+                    value= "<%= ride.ownerUserId %>"
                     required>
                 </div>
 
@@ -27,7 +38,7 @@
                     id="fromDestinationTextField"
                     placeholder="Enter the Source"
                     name="fromDestination" 
-                    value= "<%= ride.fromDestination>"
+                    value= "<%= ride.fromDestination %>"
                     required>
                 </div>
 

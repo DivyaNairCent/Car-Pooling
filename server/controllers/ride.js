@@ -6,7 +6,7 @@ let mongoose = require('mongoose');
 let Ride = require('../models/ride');
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('ride/add', {title: 'Add Ride'})          
+    res.render('index', {title: 'Add Ride'})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -33,7 +33,7 @@ module.exports.processAddPage = (req, res, next) => {
         else
         {
             // refresh the ride list
-            res.redirect('/listride');
+            res.redirect('/rides');
         }
     });
 
@@ -65,7 +65,7 @@ module.exports.performRideDeletion =  (req, res, next) => {
             res.end(err);
         } else {
             // refresh ride list
-            res.redirect('/listride');
+            res.redirect('/rides');
         }
     });
 };
