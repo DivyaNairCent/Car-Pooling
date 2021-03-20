@@ -6,6 +6,18 @@
     font-weight: bold
 }
 
+.column-66 {
+    float: left;
+    width: 66.66666%;
+    padding: 30px;
+  }
+  
+  .column-33 {
+    float: left;
+    width: 33.33333%;
+    padding: 20px;
+  }
+
 .col-st
 {
     border: 2px solid black; 
