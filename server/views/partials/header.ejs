@@ -27,8 +27,24 @@ COMP229 -->
     var day = String(todayTime.getDate());
     if(day.length==1){day="0"+day};
     var year = todayTime.getFullYear();
-
+    
     document.getElementById("bookingEndDateEditRide").value = String(year + "-" + month + "-" + day);
+
+    document.getElementById("tripDateEditRide").value = String(year + "-" + month + "-" + day);
+
+    // var time = String(todayTime.getHours) + ":" + String(todayTime.getMinutes) + " " + String(todayTime.get); 
+    
+    var hours = todayTime.getHours();
+    var minutes = todayTime.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    console.log(strTime);
+
+    document.getElementById("bookingEndTimeEditRide").value = String(strTime);
+
     // setTimeout(function(){ 
     //   alert("5 secoinds");
     //   document.getElementById("bookingEndDateEditRide").value = String(year + "-" + month + "-" + day);
