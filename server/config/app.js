@@ -1,3 +1,14 @@
+// app.js
+// CarPooling Web App
+// Project by Team CodEureka
+// Silviya Velani, Student Id: 301167163
+// Divya Nair, Student Id: 301169854 
+// Jashan Preet Singh, Student ID: 301170664
+// Surya Teja Kandru, Student Id: 301109137 
+// Aritra Roy, Student ID: 301176508 
+// Copyright © 2021 Centennial College. All rights reserved.
+
+
 // installed 3rd party packages
 let createError = require('http-errors');
 let express = require('express');
@@ -20,7 +31,8 @@ mongoDB.once('open', ()=>{
 });
 
 let indexRouter = require('../routes/index.server.routes');
-
+let rideRouter = require('../routes/ride')
+let userRouter = require('../routes/user')
 
 let app = express();
 
@@ -36,6 +48,8 @@ app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
 
 app.use('/', indexRouter);
+app.use('/rides', rideRouter);
+app.use('/users', userRouter);
 
 
 // catch 404 and forward to error handler

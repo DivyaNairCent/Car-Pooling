@@ -1,8 +1,8 @@
 {
-  "name": "CarPooling",
+  "name": "carpooling",
   "version": "1.0.0",
   "description": "Keeping in mind the daily expenses, transportation cost is very high. We compared the current ride-sharing apps like Uber &amp; Lyft, but the cost is comparatively the same as the taxi/cab. We got an idea of making real-time ridesharing (instant ridesharing) that arranges one-time shared rides on very short notice if a person who wants a ride is near to the person who is looking wants to give a ride and have the same destination.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/Suryakandru/CarPooling.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Silviya",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Suryakandru/CarPooling/issues"
@@ -25,6 +25,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "bootstrap": "^4.5.2",
+    "bootstrap4-datetimepicker": "^5.2.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "~2.6.1",

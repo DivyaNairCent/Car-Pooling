@@ -1,0 +1,38 @@
+<!-- main_content.ejs
+CarPooling Web App
+Project by Team CodEureka
+Silviya Velani, Student Id: 301167163
+Divya Nair, Student Id: 301169854 
+Jashan Preet Singh, Student ID: 301170664
+Surya Teja Kandru, Student Id: 301109137 
+Aritra Roy, Student ID: 301176508 
+Copyright © 2021 Centennial College. All rights reserved. -->
+
+<!-- Main Content -->
+<main class="container-fluid" style="padding-top:100px; padding-bottom:85px">
+    <% if (title == "Home") { %>
+        <div>
+            <%- include ../content_pages/home_page.ejs %>
+        </div>
+    <% } else if (title == "About") { %>
+        <div>
+            <%- include ../content_pages/about_page.ejs %>
+        </div>
+    <%  } else if (title == "Add Ride") {  %>
+        <div>
+            <%- include ../content_pages/add_ride_page.ejs %>
+        </div>
+    <%  } else if (title == "List Ride") {  %>
+        <div>
+            <%- include ../content_pages/list_ride_page.ejs %>
+        </div>
+    <%  }else if (title == "Edit Ride") {  %>
+        <div>
+            <%- include ../content_pages/edit_ride_page.ejs %>
+        </div>
+    <%  } else {  %>
+        <div>
+            <%- include ../content_pages/contact_page.ejs %>
+        </div>
+    <% } %>
+</main>

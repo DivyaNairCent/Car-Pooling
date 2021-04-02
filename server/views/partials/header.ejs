@@ -1,7 +1,12 @@
-<!-- Student Id: 301109137
-Author: Surya Teja Kandru
-COMP229 -->
-
+<!-- header.ejs
+CarPooling Web App
+Project by Team CodEureka
+Silviya Velani, Student Id: 301167163
+Divya Nair, Student Id: 301169854 
+Jashan Preet Singh, Student ID: 301170664
+Surya Teja Kandru, Student Id: 301109137 
+Aritra Roy, Student ID: 301176508 
+Copyright © 2021 Centennial College. All rights reserved. -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,4 +20,41 @@ COMP229 -->
   <link rel='stylesheet' href='/Content/app.css' />
 
 </head>
-<body>
+<script>
+
+    
+
+    function GetFormattedDate() {
+    
+    var todayTime = new Date();
+    var month = String(todayTime.getMonth() + 1);
+    if(month.length==1){month="0"+month};
+    var day = String(todayTime.getDate());
+    if(day.length==1){day="0"+day};
+    var year = todayTime.getFullYear();
+    
+    document.getElementById("bookingEndDateEditRide").value = String(year + "-" + month + "-" + day);
+
+    document.getElementById("tripDateEditRide").value = String(year + "-" + month + "-" + day);
+
+    // var time = String(todayTime.getHours) + ":" + String(todayTime.getMinutes) + " " + String(todayTime.get); 
+    
+    var hours = todayTime.getHours();
+    var minutes = todayTime.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    console.log(strTime);
+
+    document.getElementById("bookingEndTimeEditRide").value = String(strTime);
+
+    // setTimeout(function(){ 
+    //   alert("5 secoinds");
+    //   document.getElementById("bookingEndDateEditRide").value = String(year + "-" + month + "-" + day);
+    // }, 5000);
+  }
+
+</script>
+<body onload="GetFormattedDate()">

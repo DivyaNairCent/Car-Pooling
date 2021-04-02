@@ -1,0 +1,103 @@
+<!-- edit_ride_page.ejs
+CarPooling Web App
+Project by Team CodEureka
+Silviya Velani, Student Id: 301167163
+Divya Nair, Student Id: 301169854 
+Jashan Preet Singh, Student ID: 301170664
+Surya Teja Kandru, Student Id: 301109137 
+Aritra Roy, Student ID: 301176508 
+Copyright © 2021 Centennial College. All rights reserved. -->
+
+
+<link rel='stylesheet' href='/Content/app.css' />
+
+
+
+<!-- Content for edit page-->
+
+<div class="container">
+    <h1>Edit Ride Page</h1>
+</div>
+
+<hr class="my-3"><br>
+
+<div class="col" style="text-align:center;padding-left:80px;padding-right:80px">
+    <!-- <form id="add-ride-form" action="/rides/add" method="POST"> -->
+        <form class="form" method = "POST">
+        <div class="container">
+            <div class="form-group">
+                <input type="text" class="form-control" name="ownerUserId" placeholder="Enter owner userid" value= "<%= ride.ownerUserId %>">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" name="fromDestination" placeholder="Source" value= "<%= ride.fromDestination %>">
+                </div>
+                
+                <div class="col">
+                    <input type="text" class="form-control" name="toDestination" placeholder="Destination" value= "<%= ride.toDestination %>">
+                </div>
+            </div><br>
+        
+            <div class="form-group">
+                <input type="text" class="form-control" name="carModel" placeholder="Enter car name" value= "<%= ride.carModel %>">
+            </div>
+
+            <div class="row">
+                <div class="col" style="text-align:left;">
+                    <label for="bookingEndDateEditRide" style="text-align:left;width:180px">Booking End Date:</label>
+                    <input type="date" id="bookingEndDateEditRide" class="form-control" name="acceptingBookingTillDate" placeholder="Enter date">
+                </div>
+                
+                <div class="col" style="text-align:left;">
+                <label for="bookingEndTime" style="text-align:left;width:180px">Booking End Time:</label>
+                    <input type="time" id="bookingEndTimeEditRide" class="form-control" name="acceptingBookingTillTime" placeholder="Enter time">
+                </div>
+            </div><br>
+        
+            <div class="form-group" style="text-align:left;">
+                <label for="seats" style="text-align:left;width:180px">Seats Available:</label>
+                <select class="form-control" id="seats" name="numberOfSeats" value= "<%= ride.numberOfSeats %>">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col" style="text-align:left;">
+                    <label for="tripDate" style="text-align:left;width:180px">Trip Date:</label>
+                    <input type="date" id="tripDateEditRide" class="form-control" name="journeyDate" placeholder="Enter date">
+                </div>
+                
+                <div class="col" style="text-align:left;">
+                <label for="tripTime" style="text-align:left;width:180px">Trip Time:</label>
+                    <input type="time" id="tripTime" class="form-control" name="journeyTiming" placeholder="Enter time" value= "<%= ride.journeyTiming %>">
+                </div>
+            </div><br>
+          
+            <div class="form-group">
+                <input type="text" class="form-control" name="pricePerSeat" placeholder="Enter fare" value= "<%= ride.pricePerSeat %>">
+            </div>
+
+            <button class="btn btn-primary btn-sm" type="submit">
+                <i class="fas fa-edit"> </i>Submit</button>
+
+                
+                <a href="/rides" class="btn-warning btn-sm">
+                    <i class="fas fa-undo">Cancel</i></a>
+
+            <!-- <button class="btn btn-primary btn-sm" type="submit">
+                <i class="fas fa-edit"> </i>Add Ride</button> -->
+
+            <!-- <a type="submit" class="btn btn-success" href="/">Add Ride</a> -->
+<!-- 
+            <a href="/rides" class="btn-warning btn-sm">
+                <i class="fas fa-undo">Cancel</i></a> -->
+          <!-- <input type="submit" class="btn btn-success" value="Lets Build!"/> -->
+        </div>  
+    </form>
+</div>
