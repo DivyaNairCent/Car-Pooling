@@ -1,3 +1,13 @@
+// ride.js
+// CarPooling Web App
+// Project by Team CodEureka
+// Silviya Velani, Student Id: 301167163
+// Divya Nair, Student Id: 301169854 
+// Jashan Preet Singh, Student ID: 301170664
+// Surya Teja Kandru, Student Id: 301109137 
+// Aritra Roy, Student ID: 301176508 
+// Copyright © 2021 Centennial College. All rights reserved.
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -11,17 +21,31 @@ module.exports.displayAddPage = (req, res, next) => {
 
 module.exports.processAddPage = (req, res, next) => {
     let newRide = Ride({
-        "ownerUserId": req.body.ownerUserId,
+        "ownerUserId": 1,
         "carModel": req.body.carModel,
-        "journeyDate": req.body.journeyDate,
+        "journeyDate": getDateObject(req.body.journeyDate, req.body.journeyTiming),
         "journeyTiming": req.body.journeyTiming,
         "fromDestination": req.body.fromDestination,
         "toDestination": req.body.toDestination,
         "numberOfSeats": req.body.numberOfSeats,
         "pricePerSeat": req.body.pricePerSeat,
-        "acceptingBookingTillDate": req.body.acceptingBookingTillDate,
+        "acceptingBookingTillDate": getDateObject(req.body.acceptingBookingTillDate, req.body.acceptingBookingTillTime),
+        // "acceptingBookingTillTime": req.body.acceptingBookingTillTime,
         "isActive": true,
         "createdAt": new Date()
+        
+        // "ownerUserId": 1,
+        // "carModel": "BMW7",
+        // "journeyDate": "2022-05-23T18:25:43.511Z",
+        // "journeyTiming": "10:30 am",
+        // "fromDestination": "Mumbai",
+        // "toDestination": "Pune",
+        // "numberOfSeats": 1,
+        // "pricePerSeat": 240,
+        // "acceptingBookingTillDate": "2022-05-23T18:25:43.511Z",
+        // "isActive": true,
+        // "createdAt": new Date()
+
     });
 
     Ride.create(newRide, (err, Ride) =>{
@@ -33,10 +57,20 @@ module.exports.processAddPage = (req, res, next) => {
         else
         {
             // refresh the ride list
+            // res.render('index', {title: 'List Ride'});
             res.redirect('/rides');
         }
     });
 
+}
+
+function getDateObject(journeyDate, journeyTiming) {
+    // var dateString = "23/10/2015"; // Oct 23
+
+    var dateParts = journeyDate.split("/");
+
+    var dateObject = new Date(journeyDate + " " + journeyTiming);
+    return dateObject;
 }
 
 module.exports.displayRideList = (req, res, next) => {

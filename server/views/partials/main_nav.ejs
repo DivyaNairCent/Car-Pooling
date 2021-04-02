@@ -1,7 +1,12 @@
-
-<!-- Student Id: 301109137
-Author: Surya Teja Kandru
-COMP229 -->
+<!-- main_nav.ejs
+CarPooling Web App
+Project by Team CodEureka
+Silviya Velani, Student Id: 301167163
+Divya Nair, Student Id: 301169854 
+Jashan Preet Singh, Student ID: 301170664
+Surya Teja Kandru, Student Id: 301109137 
+Aritra Roy, Student ID: 301176508 
+Copyright © 2021 Centennial College. All rights reserved. -->
 
 <!-- Main Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #FFFFFF;">
@@ -27,9 +32,9 @@ COMP229 -->
         <% } %>
 
         <% if (title == "Add Ride") { %>
-        <li class="nav-item active"> <a class="nav-link" href="/addride" style="color: #00c9a4"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
+        <li class="nav-item active"> <a class="nav-link" href="/rides/add" style="color: #00c9a4"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
         <% } else  { %>
-        <li class="nav-item"> <a class="nav-link" href="/addride" style="color: #d2d2d2"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="/rides/add" style="color: #d2d2d2"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
         <% } %>
           
         <% if (title == "List Ride") { %>
