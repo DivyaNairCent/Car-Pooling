@@ -24,5 +24,10 @@ router.get('/add', userController.displayAddPage);
 /* POST Route for processing the Add page - CREATE Operation */
 router.post('/add', userController.processAddPage);
 
+/* POST Route for processing the Add page - CREATE Operation */
+router.get('/login', userController.displayLoginPage);
+
+/*POST  Route for processing the Login Page */
+router.post('/login', userController.processLoginPage);
 
 module.exports = router;

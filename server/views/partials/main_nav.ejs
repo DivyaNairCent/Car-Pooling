@@ -48,6 +48,20 @@ Copyright © 2021 Centennial College. All rights reserved. -->
         <% } else  { %>
         <li class="nav-item"> <a class="nav-link" href="/contact" style="color: #d2d2d2"><i class="fas fa-address-card"></i> Contact </a> </li>
         <% } %>
+        </ul>
+        <ul>
+          <% if(typeof displayName == 'string' && displayName && displayName != '' ) { %>
+          <li class="navbar-text"><i class="fas fa-lg fa-user"></i>Welcome, <%= displayName %></li>
+          <li class="nav-item"><a href='/logout' class="nav-link navbar-col ">
+            <i class="fas fa-lg fa-sign-out-alt"></i>Logout</a></li>
+          <% }else { %>
+            <li class="nav-item"> <a href='/users/login' class="a nav-link">
+                <i class="fas fa-lg fa-sign-in-alt"></i>Login</a>
+            </li>
+            <%
+            
+          } %>
+         </ul> 
           
     </div>
   </nav>
