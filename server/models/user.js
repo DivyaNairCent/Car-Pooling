@@ -9,6 +9,8 @@
 // Copyright © 2021 Centennial College. All rights reserved.
 
 let mongoose = require('mongoose');
+let passportLocalMongoose = require('passport-local-mongoose');
+
 
 // creating a model class
 let userModel = mongoose.Schema({
