@@ -1,3 +1,4 @@
+
 // user.js
 // CarPooling Web App
 // Project by Team CodEureka
@@ -12,43 +13,57 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 let passport = require('passport');
-// enable jwt
-let jwt = require('jsonwebtoken');
-let DB = require('../config/db');
+
 
  //creating a reference to the model
 let userModel = require('../models/user');
 let User = userModel.User;
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('user/add', {title: 'Add Ride'})          
+    res.render('index', {title: 'Register'})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
-    let newUser = User({
-        "username": req.body.username,
-        "name": req.body.name,
-        "emailId": req.body.emailId,
-        "password": req.body.password,
-        "isEmailVerified": req.body.isEmailVerified,
-        "isActive": true
+    let newUser = new User({
+            username : req.body.username,
+            password: req.body.password,
+            name:req.body.name,
+            emailId : req.body.email,
+            isEmailVerified: true,
+            isActive: true
+
     });
 
-    User.create(newUser, (err, User) =>{
+    User.register(newUser, req.body.password,(err) =>{
         if(err)
         {
+            console.log("Error: Inserting new user");
+            if(err.name == "UserExistsError")
+            {
+                req.flash(
+                    'registerMessage',
+                    'Registration Error: User Already Exists!'
+                );
+                console.log('Error: User Already Exists!')
+            }
             console.log(err);
-            res.end(err);
+            return res.render('index',
+            {
+                title: "Register",
+                message: req.flash('registerMessage'),
+                displayName: req.user ? req.user.displayName : ''
+          
+            });
         }
         else
         {
-            // refresh the user list
-            res.redirect('/user-list');
+             return passport.authenticate('local')(req, res, () =>
+            {
+                res.redirect('/');
+            });
         }
     });
 
-    /* POST Route for processing the Add page - CREATE Operation */
-router.post('/add', userController.processAddPage);
 
 }
 
@@ -84,26 +99,6 @@ module.exports.processLoginPage = (req, res, next) => {
                 return next(err);
             }
 
-            const payload = 
-            {
-                id: user._id,
-                displayName: user.name,
-                username: user.username,
-                email: user.email
-            }
-
-            const authToken = jwt.sign(payload, DB.Secret, {
-                expiresIn: 604800 // 1 week
-            });
-
-            /* TODO - Getting Ready to convert to API
-            res.json({success: true, msg: 'User Logged in Successfully!', user: {
-                id: user._id,
-                displayName: user.displayName,
-                username: user.username,
-                email: user.email
-            }, token: authToken});
-            */
 
             return res.redirect('/');
         });
