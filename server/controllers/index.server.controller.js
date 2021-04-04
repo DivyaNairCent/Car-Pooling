@@ -13,12 +13,11 @@ let mongoose = require('mongoose');
 let passport = require('passport');
 
 module.exports.displayHomePage = (req, res, next) => {
-    console.log(req.body.user);
-    res.render('index', {title: 'Home'});
+    res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayAboutPage = (req, res, next) => {
-    res.render('index', {title: 'About'});
+    res.render('index', {title: 'About', displayName: req.user ? req.user.displayName : ''});
 }
 
 // module.exports.displayAddRidePage = (req, res, next) => {
@@ -30,7 +29,7 @@ module.exports.displayAboutPage = (req, res, next) => {
 // }
 
 module.exports.displayContactPage = (req, res, next) => {
-    res.render('index', {title: 'Contact'});
+    res.render('index', {title: 'Contact', displayName: req.user ? req.user.displayName : ''});
 }
 
 

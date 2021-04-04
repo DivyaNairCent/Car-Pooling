@@ -20,9 +20,7 @@ let userModel = require('../models/user');
 let User = userModel.User;
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('index', {title: 'Register',
-    messages: req.flash('registerMessage'),
-    displayName: req.user ? req.user.displayName : ''})          
+    res.render('index', {title: 'Register', displayName: req.user ? req.user.displayName : ''})          
 }
 
 module.exports.processAddPage = (req, res, next) => {

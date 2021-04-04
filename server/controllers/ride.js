@@ -16,7 +16,7 @@ let mongoose = require('mongoose');
 let Ride = require('../models/ride');
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('index', {title: 'Add Ride'})          
+    res.render('index', {title: 'Add Ride', displayName: req.user ? req.user.displayName : ''})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -84,7 +84,7 @@ module.exports.displayRideList = (req, res, next) => {
         {
             console.log("Something");
             // console.log(RideList);
-            res.render('index', {title: 'List Ride', RideList: rideList});
+            res.render('index', {title: 'List Ride', RideList: rideList, displayName: req.user ? req.user.displayName : ''});
             // res.render('/index', {title: 'Home'});      
         }
     });
