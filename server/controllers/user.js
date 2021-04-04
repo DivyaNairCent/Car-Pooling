@@ -20,7 +20,9 @@ let userModel = require('../models/user');
 let User = userModel.User;
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('index', {title: 'Register'})          
+    res.render('index', {title: 'Register',
+    messages: req.flash('registerMessage'),
+    displayName: req.user ? req.user.displayName : ''})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
@@ -50,7 +52,7 @@ module.exports.processAddPage = (req, res, next) => {
             return res.render('index',
             {
                 title: "Register",
-                message: req.flash('registerMessage'),
+                messages: req.flash('registerMessage'),
                 displayName: req.user ? req.user.displayName : ''
           
             });
@@ -69,11 +71,20 @@ module.exports.processAddPage = (req, res, next) => {
 
 module.exports.displayLoginPage = (req, res, next) => {
     // check if the user is already logged in
-    res.render('index',
+
+    if(!req.user)
+    {
+        res.render('index',
         {
             title: "Login",
-            //messages: req.flash('loginMessage'),
+            messages: req.flash('loginMessage'),
+            displayName: req.user ? req.user.name : ' '
         });
+    }
+    else
+    {
+        return res.redirect('/')
+    }
 }
 
 module.exports.processLoginPage = (req, res, next) => {
@@ -108,5 +119,5 @@ module.exports.processLoginPage = (req, res, next) => {
 module.exports.performLogout = (req, res, next) =>
 {
     req.logout();
-    res.redirect('/login');
+    return res.redirect('/users/login');
 }

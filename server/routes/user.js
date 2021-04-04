@@ -30,4 +30,7 @@ router.get('/login', userController.displayLoginPage);
 /*POST  Route for processing the Login Page */
 router.post('/login', userController.processLoginPage);
 
+/*POST  Route for processing the Login Page */
+router.post('/logout', userController.performLogout);
+
 module.exports = router;
