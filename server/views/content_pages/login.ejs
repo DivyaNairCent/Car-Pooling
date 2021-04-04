@@ -1,0 +1,43 @@
+
+<main class="container">
+    <div class="jumbotron bckimg_login"> 
+
+
+          <!-- Message Are-->
+    
+        <div class="row">
+            <div class="offset-md-4 col-md-4">
+                <h1>Please Login</h1>
+                <form  method="POST" autocomplete="off" action= "/users/login">
+                    <fieldset class="form-group">
+                        <I><b>Username</b></I>
+                        <input type="text" class="form-control"
+                        name="username" placeholder="Enter username"
+                        id="username" required autofocus>
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <I><b>Password</b></I>
+                        <input type="password" class="form-control"
+                        name="password" placeholder="Enter password"
+                        id="password" required>
+                        
+                    </fieldset>
+                    <br>
+                    <fieldset class="form-group ">
+                        <input type="submit" class="btn btn-success" value="Login">
+                        <a href="/users/login">
+                            <input type ="buton" class="btn btn-warning" value="Cancel">
+                        </a>
+                        
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+    
+</main>
+
+
