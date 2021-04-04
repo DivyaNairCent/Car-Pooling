@@ -31,6 +31,10 @@ router.get('/login', userController.displayLoginPage);
 router.post('/login', userController.processLoginPage);
 
 /*POST  Route for processing the Login Page */
-router.post('/logout', userController.performLogout);
+router.get('/logout', userController.performLogout);
+
+/* GET contact page. */
+router.get('/contact', userController.displayContactPage);
+
 
 module.exports = router;

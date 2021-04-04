@@ -122,3 +122,7 @@ module.exports.performLogout = (req, res, next) =>
     req.logout();
     return res.redirect('/users/login');
 }
+
+module.exports.displayContactPage = (req, res, next) => {
+    res.render('index', {title: 'Contact', displayName:req.user.name});
+}

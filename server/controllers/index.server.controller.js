@@ -13,7 +13,7 @@ let mongoose = require('mongoose');
 let passport = require('passport');
 
 module.exports.displayHomePage = (req, res, next) => {
-    console.log(req);
+    console.log(req.body.user);
     res.render('index', {title: 'Home'});
 }
 
