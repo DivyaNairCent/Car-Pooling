@@ -7,10 +7,7 @@
 // Surya Teja Kandru, Student Id: 301109137 
 // Aritra Roy, Student ID: 301176508 
 // Copyright © 2021 Centennial College. All rights reserved.
-let express = require('express');
-let router = express.Router();
-let mongoose = require('mongoose');
-let passport = require('passport');
+
 
 module.exports.displayHomePage = (req, res, next) => {
     res.render('index', {title: 'Home', displayName: req.user ? req.user.displayName : ''});

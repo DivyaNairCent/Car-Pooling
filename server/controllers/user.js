@@ -18,6 +18,7 @@ let passport = require('passport');
  //creating a reference to the model
 let userModel = require('../models/user');
 let User = userModel.User;
+let Ride = require('../models/ride');
 
 module.exports.displayAddPage = (req, res, next) => {
     res.render('index', {title: 'Register',
@@ -127,16 +128,13 @@ module.exports.performLogout = (req, res, next) =>
 ///from ride.js controller
 
 
-// creating a reference to the model
-let Ride = require('../models/ride');
-
 module.exports.displayRideAddPage = (req, res, next) => {
     res.render('index', {title: 'Add Ride', displayName: req.user ? req.user.name : ''})          
 }
 
 module.exports.processRideAddPage = (req, res, next) => {
     let newRide = Ride({
-        "ownerUserId": 1,
+        "ownerUserId": req.user._id,
         "carModel": req.body.carModel,
         "journeyDate": getDateObject(req.body.journeyDate, req.body.journeyTiming),
         "journeyTiming": req.body.journeyTiming,
@@ -173,7 +171,7 @@ module.exports.processRideAddPage = (req, res, next) => {
         {
             // refresh the ride list
             // res.render('index', {title: 'List Ride'});
-            res.redirect('/rides');
+            res.redirect('/users/displayride');
         }
     });
 
@@ -258,7 +256,7 @@ module.exports.processRideUpdate = (req, res, next) => {
             res.end(err); 
         } else {
             // refresh ride list
-            res.redirect('/rides');
+            res.redirect('/users/displayride');
         }
     });
 };
@@ -275,6 +273,26 @@ module.exports.displayAboutPage = (req, res, next) => {
 }
 
 module.exports.displayContactPage = (req, res, next) => {
+
     res.render('index', {title: 'Contact', displayName: req.user ? req.user.name : ''});
 }
 
+
+module.exports.displayRideListByUserId = async (req, res, next) => {
+    let userId = req.user._id;
+    
+    // parseInt(req.params.userId);
+    console.log("Entered with id: " + userId);
+    Ride.find({'ownerUserId': userId}).exec((err, rideList) => {
+        if(err)
+        {
+            return console.error(err);
+        }
+        else
+        {
+            console.log(userId)
+            console.log(rideList)
+            res.render('index', {title: 'List My Ride', RideList: rideList, displayName:req.user ? req.user.name : ''});     
+        }
+    });
+}

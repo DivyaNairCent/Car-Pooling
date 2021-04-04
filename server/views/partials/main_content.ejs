@@ -30,6 +30,10 @@ Copyright © 2021 Centennial College. All rights reserved. -->
         <div>
             <%- include ../content_pages/edit_ride_page.ejs %>
         </div>
+    <%  }else if (title == "List My Ride") {  %>
+        <div>
+            <%- include ../content_pages/my_rides_page.ejs %>
+        </div>
     <%  }else if (title == "Login") {  %>
         <div>
             <%- include ../content_pages/login.ejs %>
