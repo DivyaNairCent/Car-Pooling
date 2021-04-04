@@ -20,55 +20,55 @@ Copyright © 2021 Centennial College. All rights reserved. -->
       <ul class="navbar-nav ml-auto">
 
         <% if (title == "Home"){ %>
-        <li class="nav-item active"> <a class="nav-link" href="/home" style="color: #00c9a4"><i class="fas fa-lg fa-laptop-house"></i> Home </a> </li>
+        <li class="nav-item active"> <a class="nav-link" href="/users/home" style="color: #00c9a4"><i class="fas fa-lg fa-laptop-house"></i> Home </a> </li>
         <% } else  { %>
-        <li class="nav-item"> <a class="nav-link" href="/home" style="color: #d2d2d2"><i class="fas fa-lg fa-laptop-house"></i> Home </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="/users/home" style="color: #d2d2d2"><i class="fas fa-lg fa-laptop-house"></i> Home </a> </li>
         <% } %>
 
         <% if (title == "About") { %>
-        <li class="nav-item active"> <a class="nav-link" href="/about" style="color: #00c9a4"><i class="fas fa-info-circle"></i> About </a> </li>
+        <li class="nav-item active"> <a class="nav-link" href="/users/about" style="color: #00c9a4"><i class="fas fa-info-circle"></i> About </a> </li>
         <% } else  { %>
-        <li class="nav-item"> <a class="nav-link" href="/about" style="color: #d2d2d2"><i class="fas fa-info-circle"></i> About </a> </li>
+        <li class="nav-item"> <a class="nav-link" href="/users/about" style="color: #d2d2d2"><i class="fas fa-info-circle"></i> About </a> </li>
         <% } %>
 
-        <% if (title == "Add Ride") { %>
-        <li class="nav-item active"> <a class="nav-link" href="/rides/add" style="color: #00c9a4"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
-        <% } else  { %>
-        <li class="nav-item"> <a class="nav-link" href="/rides/add" style="color: #d2d2d2"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
-        <% } %>
+        <% if (typeof displayName == 'string' && displayName && displayName != '') { %>
+          <% if (title == "Add Ride") { %>
+          <li class="nav-item active"> <a class="nav-link" href="/users/add" style="color: #00c9a4"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
+          <% } else  { %>
+          <li class="nav-item"> <a class="nav-link" href="/users/add" style="color: #d2d2d2"><i class="fa fa-plus-square"></i> Add Ride </a> </li>
+          <% } %>
+
+
+          <% if (title == "List Ride") { %>
+          <li class="nav-item active"> <a class="nav-link" href="/users" style="color: #00c9a4"><i class="fa fa-car"></i> List Ride </a> </li>
+          <% } else  { %>
+          <li class="nav-item"> <a class="nav-link" href="/users" style="color: #d2d2d2"><i class="fa fa-car"></i> List Ride </a> </li>
+          <% } %>
+
+       <% } %> 
+
+        
           
-        <% if (title == "List Ride") { %>
-        <li class="nav-item active"> <a class="nav-link" href="/rides" style="color: #00c9a4"><i class="fa fa-car"></i> List Ride </a> </li>
-        <% } else  { %>
-        <li class="nav-item"> <a class="nav-link" href="/rides" style="color: #d2d2d2"><i class="fa fa-car"></i> List Ride </a> </li>
-        <% } %>
 
         <% if (title == "Contact") { %>
         <li class="nav-item active"> <a class="nav-link" href="/users/contact" style="color: #00c9a4"><i class="fas fa-address-card"></i> Contact </a> </li>
         <% } else  { %>
         <li class="nav-item"> <a class="nav-link" href="/users/contact" style="color: #d2d2d2"><i class="fas fa-address-card"></i> Contact </a> </li>
         <% } %>
-        <% if (title == "Register") { %>
-        <li class="nav-item active"> <a class="nav-link" href="/users/register" style="color: #00c9a4"><i class="fas fa-address-card"></i> Register </a> </li>
-        <% } else  { %>
-        <li class="nav-item"> <a class="nav-link" href="/users/register" style="color: #d2d2d2"><i class="fas fa-address-card"></i> Register </a> </li>
-        <% } %>
-
+        
         </ul>
-        <ul>
+      <ul>
           <% if(typeof displayName == 'string' && displayName && displayName != '' ) { %>
           <li class="navbar-text"><i class="fas fa-lg fa-user"></i>Welcome, <%= displayName %></li>
-          <li class="nav-item"><a href='/users/logout' class="nav-link navbar-col ">
+          <li class="nav-item"><a href='/users/logout' class="nav-link navbar-col " >
             <i class="fas fa-lg fa-sign-out-alt"></i>Logout</a></li>
           <% }else { %>
-            <li class="nav-item"> <a href='/users/login' class="a nav-link" style="color: #d2d2d2">
+            <li class="nav-item"> <a href='/users/login' class="a nav-link" style="color: #00c9a4">
                 <i class="fas fa-lg fa-sign-in-alt" style="color: #d2d2d2"></i>Login</a>
             </li>
-            <%
-            
-          } %>
+            <% } %>
 
-        </ul>
+      </ul>
           
     </div>
   </nav>

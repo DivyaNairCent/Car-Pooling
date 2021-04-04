@@ -18,8 +18,19 @@ let User = require('../models/user');
 
 let userController = require('../controllers/user');
 
+function requireAuth(req, res, next)
+{
+    //check if user is logged in
+    if(!req.isAuthenticated())
+    {
+        return res.redirect('/users/login');
+    
+    }
+    next();
+}
+
 /* GET Route for displaying the Add page - CREATE Operation */
-router.get('/register', userController.displayAddPage);
+router.get('/register',  userController.displayAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
 router.post('/register', userController.processAddPage);
@@ -33,8 +44,47 @@ router.post('/login', userController.processLoginPage);
 /*POST  Route for processing the Login Page */
 router.get('/logout', userController.performLogout);
 
-/* GET contact page. */
-router.get('/contact', userController.displayContactPage);
 
+/// from ride.js router
+
+// creating a reference to the model
+let Ride = require('../models/ride');
+
+/* GET Route for displaying the Add page - CREATE Operation */
+router.get('/add', requireAuth, userController.displayRideAddPage);
+
+/* POST Route for processing the Add page - CREATE Operation */
+router.post('/add', userController.processRideAddPage);
+
+/* GET Route for the Ride List page - READ Operation */
+router.get('/',requireAuth, userController.displayRideList);
+
+/* GET router for the DELETE Book page - DELETE */
+router.get('/delete/:id',requireAuth, userController.performRideDeletion);
+
+/* GET Route for displaying the Edit page - UPDATE Operation */
+router.get('/edit/:id',requireAuth, userController.displayEditRide);
+
+/* POST router for the EDIT Ride page - UPDATE */
+router.post('/edit/:id', userController.processRideUpdate);
+
+/// from index.js controller
+
+ /* GET home page. */
+ router.get('/', userController.displayHomePage);
+ router.get('/home', userController.displayHomePage);
+ 
+ /* GET about page. */
+ router.get('/about', userController.displayAboutPage);
+ 
+ // /* GET add ride page. */
+ // router.get('/addride', indexController.displayAddRidePage);
+ 
+ // /* GET list ride page. */
+ // router.get('/listride', indexController.displayListRidePage);
+ 
+ /* GET contact page. */
+ router.get('/contact', userController.displayContactPage);
+ 
 
 module.exports = router;
