@@ -69,11 +69,20 @@ module.exports.processAddPage = (req, res, next) => {
 
 module.exports.displayLoginPage = (req, res, next) => {
     // check if the user is already logged in
-    res.render('index',
+    if(!req.user){
+        res.render('index',
         {
             title: "Login",
-            //messages: req.flash('loginMessage'),
-        });
+            messages: req.flash('loginMessage'),
+            displayName: req.user?req.user.displayName:''
+        })
+
+
+    }
+    else {
+        return res.redirect('/')
+    }
+   
 }
 
 module.exports.processLoginPage = (req, res, next) => {
