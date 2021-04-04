@@ -57,7 +57,7 @@ router.get('/add', requireAuth, userController.displayRideAddPage);
 router.post('/add', userController.processRideAddPage);
 
 /* GET Route for the Ride List page - READ Operation */
-router.get('/',requireAuth, userController.displayRideList);
+router.get('/displayride',requireAuth, userController.displayRideList);
 
 /* GET router for the DELETE Book page - DELETE */
 router.get('/delete/:id',requireAuth, userController.performRideDeletion);
@@ -85,6 +85,9 @@ router.post('/edit/:id', userController.processRideUpdate);
  
  /* GET contact page. */
  router.get('/contact', userController.displayContactPage);
+
+ /* GET Route for the Ride List page specific to the user - READ Operation */
+router.get('/myrides', userController.displayRideListByUserId);
  
 
 module.exports = router;

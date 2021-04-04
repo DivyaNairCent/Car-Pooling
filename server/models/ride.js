@@ -12,7 +12,7 @@ let mongoose = require('mongoose');
 
 // creating a model class
 let rideModel = mongoose.Schema({
-    ownerUserId: Number,
+    ownerUserId: String,
     carModel: String,
     journeyDate: Date,
     journeyTiming: String,

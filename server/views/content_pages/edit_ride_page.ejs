@@ -25,9 +25,6 @@ Copyright © 2021 Centennial College. All rights reserved. -->
     <!-- <form id="add-ride-form" action="/rides/add" method="POST"> -->
         <form class="form" method = "POST">
         <div class="container">
-            <div class="form-group">
-                <input type="text" class="form-control" name="ownerUserId" placeholder="Enter owner userid" value= "<%= ride.ownerUserId %>">
-            </div>
             <div class="row">
                 <div class="col">
                     <input type="text" class="form-control" name="fromDestination" placeholder="Source" value= "<%= ride.fromDestination %>">
@@ -87,7 +84,7 @@ Copyright © 2021 Centennial College. All rights reserved. -->
                 <i class="fas fa-edit"> </i>Submit</button>
 
                 
-                <a href="/rides" class="btn-warning btn-sm">
+                <a href="/users/myrides" class="btn-warning btn-sm">
                     <i class="fas fa-undo">Cancel</i></a>
 
             <!-- <button class="btn btn-primary btn-sm" type="submit">

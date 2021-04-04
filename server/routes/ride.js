@@ -16,6 +16,7 @@ let mongoose = require('mongoose');
 let Ride = require('../models/ride');
 
 let rideController = require('../controllers/ride');
+let userController = require('../controllers/user');
 
 /* GET Route for displaying the Add page - CREATE Operation */
 router.get('/add', rideController.displayAddPage);
