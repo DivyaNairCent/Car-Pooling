@@ -71,25 +71,26 @@ module.exports.processAddPage = (req, res, next) => {
 
 module.exports.displayLoginPage = (req, res, next) => {
     // check if the user is already logged in
-
-    if(!req.user)
-    {
+    if(!req.user){
         res.render('index',
         {
             title: "Login",
             messages: req.flash('loginMessage'),
-            displayName: req.user ? req.user.name : ' '
-        });
+            displayName: req.user?req.user.displayName:''
+        })
+
+
     }
-    else
-    {
+    else {
         return res.redirect('/')
     }
+   
 }
 
 module.exports.processLoginPage = (req, res, next) => {
     passport.authenticate('local',
     (err, user, info) => {
+        console.log(res.username);
         // server err?
         if(err)
         {
@@ -99,7 +100,7 @@ module.exports.processLoginPage = (req, res, next) => {
         // is there a user login error?
         if(!user)
         {
-            console.log(res);
+            
             req.flash('loginMessage', 'Authentication Error');
             return res.redirect('/users/login');
         }
