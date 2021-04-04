@@ -9,13 +9,33 @@
 // Copyright © 2021 Centennial College. All rights reserved.
 
 let mongoose = require('mongoose');
+let passportLocalMongoose = require('passport-local-mongoose');
+
 
 // creating a model class
 let userModel = mongoose.Schema({
-    username: String,
+    username:{
+        type: String,
+        default: '',
+        trim:true,
+        required: 'username is required'
+
+    } ,
     name: String,
-    emailId: String,
-    password: String,
+    emailId: {
+        type: String,
+        default: '',
+        trim:true,
+        required: 'email address  is required'
+
+    } ,
+    password:{
+        type: String,
+        default: '',
+        trim:true,
+        required: 'password is required'
+
+    } , 
     isEmailVerified: Boolean,
     isActive: Boolean
 }, {
@@ -23,4 +43,10 @@ let userModel = mongoose.Schema({
     timestamps: true
 });
 
-module.exports = mongoose.model('user', userModel);
+
+//configure options for User Model
+
+let options = ({ missingPasswordError: 'Wrong / Missing password'});
+
+userModel.plugin(passportLocalMongoose, options);
+module.exports.User = mongoose.model('User', userModel);

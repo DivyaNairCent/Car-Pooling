@@ -1,3 +1,4 @@
+
 // user.js
 // CarPooling Web App
 // Project by Team CodEureka
@@ -11,35 +12,101 @@
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
+let passport = require('passport');
 
-// creating a reference to the model
-let User = require('../models/ride');
+
+ //creating a reference to the model
+let userModel = require('../models/user');
+let User = userModel.User;
 
 module.exports.displayAddPage = (req, res, next) => {
-    res.render('user/add', {title: 'Add Ride'})          
+    res.render('index', {title: 'Register'})          
 }
 
 module.exports.processAddPage = (req, res, next) => {
-    let newUser = User({
-        "username": req.body.username,
-        "name": req.body.name,
-        "emailId": req.body.emailId,
-        "password": req.body.password,
-        "isEmailVerified": req.body.isEmailVerified,
-        "isActive": true
+    let newUser = new User({
+            username : req.body.username,
+            password: req.body.password,
+            name:req.body.name,
+            emailId : req.body.email,
+            isEmailVerified: true,
+            isActive: true
+
     });
 
-    User.create(newUser, (err, User) =>{
+    User.register(newUser, req.body.password,(err) =>{
         if(err)
         {
+            console.log("Error: Inserting new user");
+            if(err.name == "UserExistsError")
+            {
+                req.flash(
+                    'registerMessage',
+                    'Registration Error: User Already Exists!'
+                );
+                console.log('Error: User Already Exists!')
+            }
             console.log(err);
-            res.end(err);
+            return res.render('index',
+            {
+                title: "Register",
+                message: req.flash('registerMessage'),
+                displayName: req.user ? req.user.displayName : ''
+          
+            });
         }
         else
         {
-            // refresh the user list
-            res.redirect('/user-list');
+             return passport.authenticate('local')(req, res, () =>
+            {
+                res.redirect('/');
+            });
         }
     });
 
+
+}
+
+module.exports.displayLoginPage = (req, res, next) => {
+    // check if the user is already logged in
+    res.render('index',
+        {
+            title: "Login",
+            //messages: req.flash('loginMessage'),
+        });
+}
+
+module.exports.processLoginPage = (req, res, next) => {
+    passport.authenticate('local',
+    (err, user, info) => {
+        // server err?
+        if(err)
+        {
+            return next(err);
+        }
+     
+        // is there a user login error?
+        if(!user)
+        {
+            console.log(res);
+            req.flash('loginMessage', 'Authentication Error');
+            return res.redirect('/users/login');
+        }
+        req.login(user, (err) => {
+            // server error?
+            if(err)
+            {
+                return next(err);
+            }
+
+
+            return res.redirect('/');
+        });
+    })(req, res, next);
+}
+
+module.exports.performLogout = (req, res, next) =>
+{
+    req.logout();
+    res.redirect('/login');
 }

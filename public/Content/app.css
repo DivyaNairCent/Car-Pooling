@@ -99,6 +99,12 @@
 .bckimg{
     background: url('../Assets/images/rideshare.png');
 }
+
+.bckimg_login{
+    background: url('../Assets/images/carpool-login.jpeg');
+
+}
+
 .section-content {
     width: 950px;
     -webkit-box-align: start;
