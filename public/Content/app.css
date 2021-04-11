@@ -84,6 +84,9 @@
 .inner-section2 {
     height: 410px;
 }
+.inner-section3 {
+    height: 910px;
+}
 .inner-section2.jobs:before, .inner-section2.carpool:before {
     content: "";
     display: block;
@@ -95,6 +98,16 @@
     background-color: #242323;
     opacity: 0.4;
 }
+.contact_content
+{
+    position: absolute;
+    top: 100;
+    left: 6;
+    bottom: 5;
+    right: 0;
+    padding: 2em 7em 20em 20em;
+
+}
 
 .bckimg{
     background: url('../Assets/images/rideshare.png');
@@ -102,6 +115,11 @@
 
 .bckimg_login{
     background: url('../Assets/images/carpool-login.jpeg');
+
+}
+
+.bckimg_contact{
+    background: url('../Assets/images/contact.jpg');
 
 }
 
@@ -144,14 +162,11 @@
     display: -ms-flexbox!important;
     display: flex!important;
 }
-.d-flex {
-    display: -ms-flexbox!important;
-    display: flex!important;
-}
+
 
 
 .m_btn{
-    margin-left:150px;
+    margin-left:100px;
 }
 
 
@@ -170,10 +185,10 @@
 /* styling for contact message section*/
 .contact_mess
 {
-    padding: 100px 100px 20px 100px; 
+    padding: 100px 15px 15px 10px; 
     width:70%;
     border: 2px solid black; 
-    background-color:white ;
+    background-color: white;
 }
 
 label{
@@ -186,4 +201,14 @@ label{
 .inner-section2.jobs .section-content, .inner-section2.partners .section-content, .inner-section2.contact .section-content, .inner-section2.support-cities .section-content, .inner-section2.team .section-content, .inner-section2.carpool .section-content {
     position: relative;
     z-index: 1;
+}
+
+.section-contact{ 
+    position: relative;
+    z-index: 1;
+}
+
+.list_con{
+    background-color: rgb(156, 185, 176)
+    
 }

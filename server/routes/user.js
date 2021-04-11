@@ -51,19 +51,19 @@ router.get('/logout', userController.performLogout);
 let Ride = require('../models/ride');
 
 /* GET Route for displaying the Add page - CREATE Operation */
-router.get('/add', requireAuth, userController.displayRideAddPage);
+router.get('/add',  userController.displayRideAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
 router.post('/add', userController.processRideAddPage);
 
 /* GET Route for the Ride List page - READ Operation */
-router.get('/displayride',requireAuth, userController.displayRideList);
+router.get('/displayride', userController.displayRideList);
 
 /* GET router for the DELETE Book page - DELETE */
-router.get('/delete/:id',requireAuth, userController.performRideDeletion);
+router.get('/delete/:id', userController.performRideDeletion);
 
 /* GET Route for displaying the Edit page - UPDATE Operation */
-router.get('/edit/:id',requireAuth, userController.displayEditRide);
+router.get('/edit/:id', userController.displayEditRide);
 
 /* POST router for the EDIT Ride page - UPDATE */
 router.post('/edit/:id', userController.processRideUpdate);

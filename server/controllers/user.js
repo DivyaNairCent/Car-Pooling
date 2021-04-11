@@ -20,12 +20,14 @@ let userModel = require('../models/user');
 let User = userModel.User;
 let Ride = require('../models/ride');
 
+//displaying add user/register page
 module.exports.displayAddPage = (req, res, next) => {
     res.render('index', {title: 'Register',
     messages: req.flash('registerMessage'),
      displayName: req.user ? req.user.name : ''})          
 }
 
+// adding new user
 module.exports.processAddPage = (req, res, next) => {
     let newUser = new User({
             username : req.body.username,
@@ -70,6 +72,7 @@ module.exports.processAddPage = (req, res, next) => {
 
 }
 
+//display login page
 module.exports.displayLoginPage = (req, res, next) => {
     // check if the user is already logged in
     if(!req.user){
@@ -88,6 +91,7 @@ module.exports.displayLoginPage = (req, res, next) => {
    
 }
 
+//process login 
 module.exports.processLoginPage = (req, res, next) => {
     passport.authenticate('local',
     (err, user, info) => {
